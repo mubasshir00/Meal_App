@@ -1,3 +1,3 @@
 # meal_app
 
-Beginner friendly flutter project with all navigation .
+Beginner friendly flutter project with all type of navigation .
