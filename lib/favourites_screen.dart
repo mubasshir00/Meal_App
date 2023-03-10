@@ -13,6 +13,7 @@ class FavouritesScreen extends StatelessWidget {
       );
     } else {
       return ListView.builder(
+        itemCount: favoriteMeals.length,
         itemBuilder: (ctx, index) {
           return MealItem(
             id: favoriteMeals[index].id,

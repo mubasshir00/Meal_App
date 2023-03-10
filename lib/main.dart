@@ -86,7 +86,7 @@ class _MyAppState extends State<MyApp> {
         '/': (ctx) => TabsScreen(_favoritesMeals),
         CategoryMealsScreen.routeName: (ctx) =>
             CategoryMealsScreen(_availableMeals),
-        MealDetailScreen.routeName: (ctx) => MealDetailScreen(_toggleFavorite as Function(), _favoritesMeals as Function),
+        MealDetailScreen.routeName: (ctx) => MealDetailScreen(_toggleFavorite , _isMealFavorite  ),
         FiltersScreen.routeName: (ctx) => FiltersScreen(_filters, _setFilters),
       },
       onGenerateRoute: (settings) {

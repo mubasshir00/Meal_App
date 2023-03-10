@@ -25,15 +25,6 @@ class _FiltersScreenState extends State<FiltersScreen> {
     super.initState();
   }
 
-  Widget _buildSwitchListTile(String title, String description,
-      bool currentValue, Function updateValue) {
-    return SwitchListTile(
-      title: Text(title),
-      value: currentValue,
-      subtitle: Text(description),
-      onChanged: updateValue(),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,26 +56,33 @@ class _FiltersScreenState extends State<FiltersScreen> {
         Expanded(
             child: ListView(
           children: <Widget>[
-            _buildSwitchListTile(
-                'Glueten Free', 'Only Include gluten free meals', _glutenFree,
-                (newValue) {
-              setState(() {
-                _glutenFree = newValue;
-              });
-            } as Function()),
-            _buildSwitchListTile('Lactose-Free Free',
-                'Only Include Lactose free meals', _glutenFree, (newValue) {
-              setState(() {
-                _lactoseFree = newValue;
-              });
-            } as Function()),
-            _buildSwitchListTile(
-                'Vegetarian', 'Only Include Vegetarian meals', _glutenFree,
-                (newValue) {
-              setState(() {
-                _vegetarian = newValue;
-              });
-            } as Function())
+            SwitchListTile(
+                title: Text('Gluten Free'),
+                subtitle: Text('Only include gluten free meals.'),
+                value: _glutenFree,
+                onChanged: (newValue) {
+                  setState(() {
+                    _glutenFree = newValue;
+                  });
+                }),
+                SwitchListTile(
+                title: Text('Lactose-Free Free'),
+                subtitle: Text('Only Include Lactose free meals'),
+                value: _lactoseFree,
+                onChanged: (newValue) {
+                  setState(() {
+                    _lactoseFree = newValue;
+                  });
+                }),
+                SwitchListTile(
+                title: Text('Vegetarian'),
+                subtitle: Text('Only Include Vegetarian meals'),
+                value: _vegetarian,
+                onChanged: (newValue) {
+                  setState(() {
+                    _vegetarian = newValue;
+                  });
+                })
           ],
         ))
       ]),
